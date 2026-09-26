@@ -3,3 +3,16 @@ weights/*.pth
 __pycache__/
 *.pyc
 .venv/
+.idea/
+
+# Annotated images are regenerable from predictions; keep locally only
+results/*/images/
+
+# Editable Apple sources; the PDFs are committed
+reports/*.pages
+reports/*.key
+
+# Contains student ID / professor scoring; keep private
+reports/Student Research Activity Evaluation Form*.pdf
+/pyproject.toml
+reports/Research_Activity_Report_James_Corino.*

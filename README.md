@@ -1,212 +1,172 @@
-# Research Internship — Daily Log & Implementation
+# Grounding DINO as a Face Localizer for Deepfake Detection
 
-This repository tracks my day-to-day work during my research internship — tasks completed, experiments conducted, results, challenges, and next steps — and contains the working implementation for the Grounding DINO research task.
+Can an open-vocabulary detector find faces well enough to be **stage 1** of a deepfake-detection pipeline, handing crops to a dedicated forensic model? This repo evaluates [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO) (Swin-T) on 45 images across six conditions, sweeps its detection thresholds, and packages the detector as a reusable module for the next stage.
 
-## Overview
+Research internship project, SKKU InfoLab (AI for Social Good Lab), Jul–Aug 2026, supervised by Prof. Tamer Abuhmed.
 
-The internship covers two parallel workstreams:
-
-1. **PyTorch Fundamentals** — working through the [PyTorch for Deep Learning](https://www.udemy.com/course/pytorch-for-deep-learning/) course on Udemy.
-2. **Grounding DINO Research** — exploring [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO), an open-vocabulary object detection model, as a potential first stage in a deepfake-detection pipeline (i.e., locating faces/facial regions before applying a dedicated forensic model).
-
-## Repository Structure
-
-Each working day gets its own folder containing that day's materials (papers, notes, code, screenshots, results) plus a short log of what was done. The Grounding DINO implementation itself lives alongside the daily logs.
-
-```
-.
-├── README.md
-├── Day01/
-│   ├── Grounding_DINO_Summary.md
-│   └── log.md              # daily log entry (see format below)
-├── Day02/
-│   └── ...
-├── Day03/
-│   └── ...
-├── ...
-├── GroundingDINO/           # cloned official repo (its own README.md included)
-├── weights/                 # pretrained checkpoints (gitignored — not committed)
-├── src/                     # scripts (e.g. batch_inference.py)
-├── data/                    # test images, organized by category
-│   └── subsets_for_thresholds/  # hand-picked image subset used for the Task D threshold sweep (not a primary category)
-├── results/                 # annotated images + prediction files (JSON/CSV)
-└── reports/                 # weekly progress reports, short report, presentation
+```mermaid
+flowchart LR
+    A[Image / video frame] --> B["Stage 1: Grounding DINO<br/>prompt: 'human face'"]
+    B --> C[Face crops<br/>--save_crops]
+    C --> D["Stage 2: forensic classifier<br/>(planned)"]
+    D --> E[real / manipulated]
+    style D stroke-dasharray: 5 5
+    style E stroke-dasharray: 5 5
 ```
 
-## Test Image Set
+## Key findings
 
-Categories under `data/`, as of the response to Tamer's Aug 2026 feedback (expanding the thin `occluded`/`multiple` categories and adding the previously-missing `small_lowres` and `deepfake` conditions):
-
-| Category | Folder | Count | Status |
-|---|---|---|---|
-| Single frontal face | `data/single/` | 10 | done |
-| Profile / angled face | `data/profile/` | 5 | done |
-| Multiple faces | `data/multiple/` | 5 | done |
-| Occluded / blurred face | `data/occluded/` | 7 | done |
-| Small / low-resolution face | `data/small_lowres/` | 6 | done |
-| Deepfake sample (placeholder) | `data/deepfake/` | 12 | done — Kaggle placeholder, see Dataset Access Status below |
-
-`multiple` was expanded from 4 → 5 (one new dense crowd scene added — see Results below) rather than the original ~7 target; the new image alone was informative enough (see the threshold-sensitivity discussion) that further expansion wasn't pursued this round.
-
-Sourcing: `single` images are pulled from the `logasja/lfw` dataset on Hugging Face via the `datasets` library:
-
-```bash
-pip install datasets
-python -c "
-from datasets import load_dataset
-ds = load_dataset('logasja/lfw', split='train')
-for i in range(10):
-    ds[i]['image'].save(f'data/single/lfw_{i:02d}.jpg')
-"
-```
-
-`multiple`, `occluded`, and `profile` images are stock photos from Unsplash/Pexels.
-
-`small_lowres` images are thumbnail-resolution downscaled copies of already-curated photos from `single`/`profile`/`occluded`/`multiple` (long edge 32–90px), generated with `src/make_small_lowres.py`, to specifically test detection reliability under thumbnail/distant-camera resolution — a condition the original 21-image set didn't cover.
-
-### Dataset Access Status (deepfake condition)
-
-Three routes are being pursued in parallel for genuine manipulated-media frames, none granted yet as of this update:
-
-| Dataset | Access | Status |
-|---|---|---|
-| FaceForensics++ | Request form | Pending (originally requested; follow-up sent) |
-| RWDF-23 (DASH Lab) | Google Form | Requested |
-| FakeAVCeleb (DASH Lab) | Google Form + license agreement | Requested |
-
-In the meantime, `data/deepfake/` holds 12 images from the `Test/Fake` split of the [manjilkarki/deepfake-and-real-images](https://www.kaggle.com/datasets/manjilkarki/deepfake-and-real-images) Kaggle dataset (free account, no approval wait) as a clearly-labeled **substitute pending approval** — not a forensic-quality dataset, exploratory only, same caveat as the "real face"/"manipulated face" prompts below.
-
-## Environment
-
-| | Version used |
+| | Finding |
 |---|---|
-| Python | 3.10 |
-| PyTorch | 2.13.0 |
-| transformers | 4.37 |
-| CUDA | N/A (macOS, no NVIDIA GPU) |
-| GPU/chip | Apple M2 |
-| MPS available | True (ran inference in `--cpu-only` mode for reliability/accuracy) |
-| OS | macOS 26.6 |
+| ✅ | **Frontal, profile, and moderately occluded faces are found reliably** with the prompt `"human face"`, typically one box per face at default thresholds. |
+| ⚠️ | **No single threshold works everywhere.** Raising box/text thresholds removes duplicate boxes on easy frontal faces but drops harder profile faces entirely (below). The default 0.35 / 0.25 is a reasonable middle ground. |
+| ❌ | **Dense crowds fail, and thresholds can't fix it.** A crowd photo with ~30–40 px faces returned **0 detections** on 4 of 5 prompts; even the most permissive setting (0.25 / 0.20) recovered only 2 low-confidence boxes out of hundreds of faces. This is a resolution/scale limitation, not a tuning one. |
+| ❌ | **Prompt wording is not a forensic signal.** `"real face"` and `"manipulated face"` return nearly the same boxes as `"human face"` (avg 1.25 vs 1.17 vs 1.33 boxes/image on the deepfake sample). The model matches *face*, not *authenticity*, which supports using it only for localization. |
 
-## Installation
+<table>
+<tr>
+<th>Duplicates at box 0.25 / text 0.20</th>
+<th>Collapses to 1 box at 0.45 / 0.30</th>
+<th>Profile face: 3 boxes at 0.25 / 0.20</th>
+<th>…missed entirely at 0.45 / 0.30</th>
+</tr>
+<tr>
+<td><img src="docs/figures/dup_boxes_low_thresh.jpg" width="200"></td>
+<td><img src="docs/figures/dup_boxes_high_thresh.jpg" width="200"></td>
+<td><img src="docs/figures/profile_low_thresh.jpg" width="200"></td>
+<td><img src="docs/figures/profile_high_thresh.jpg" width="200"></td>
+</tr>
+</table>
+
+Full write-ups: [Findings Report v2](reports/GroundingDINO_Report_v2.pdf) · [Initial Findings Report](reports/GroundingDINOInitialFindingsReport.pdf) · [Slides v2](reports/GroundingDINOInitialFindingsPresentation_v2.pdf) · [Initial slides](reports/GroundingDINOInitialFindingsPresentation.pdf) · [Model summary](docs/grounding_dino_summary.md)
+
+## Quickstart
 
 ```bash
-# Create environment
+git clone https://github.com/Jamescorino8/InfoLab-Research-Internship.git
+cd InfoLab-Research-Internship
+
 conda create -n groundingdino python=3.10 -y
 conda activate groundingdino
 
-# Install PyTorch (this project ran on macOS/Apple Silicon via MPS, no CUDA —
-# if you have an NVIDIA GPU, install the matching CUDA build from pytorch.org instead)
-pip install torch==2.13.0 torchvision
+pip install torch torchvision          # pick the right build for your machine at pytorch.org
+pip install -r requirements.txt
+pip install -e GroundingDINO --no-build-isolation   # plain `pip install -e` fails: torch not visible in pip's isolated build env
 
-# Install GroundingDINO (vendored in this repo under GroundingDINO/)
-# --no-build-isolation is required: plain `pip install -e .` fails with
-# `ModuleNotFoundError: No module named 'torch'` inside pip's isolated build env
-cd GroundingDINO
-pip install -e . --no-build-isolation
-cd ..
-
-# GroundingDINO's setup can pull in a newer transformers than tested; pin if you hit issues
-pip install transformers==4.37
-
-# Download the pretrained Swin-T checkpoint
 mkdir -p weights
-wget -P weights https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+curl -L -o weights/groundingdino_swint_ogc.pth \
+  https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+
+# Smoke test (~5 s/image on an M2 CPU)
+python src/batch_inference.py --input_folder data/single --output_folder results/smoke_test --prompt "human face"
 ```
 
-Installation errors and their fixes are logged day-by-day in the relevant `DayXX/log.md`.
+Tested on macOS 26.6 / Apple M2, Python 3.10, PyTorch 2.13.0, transformers 4.37, CPU inference. Setup errors and their fixes are documented in [logs/Day02](logs/Day02/log.md) and [logs/Day04](logs/Day04/log.md).
 
 ## Usage
 
-### Basic inference (single image)
-
-```bash
-python GroundingDINO/demo/inference_on_a_image.py \
-  -c GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py \
-  -p weights/groundingdino_swint_ogc.pth \
-  -i <path-to-image> \
-  -o <output-dir> \
-  -t "human face" \
-  --box_threshold 0.35 \
-  --text_threshold 0.25 \
-  --cpu-only
-```
-
-### Batch inference script
+### Batch inference
 
 ```bash
 python src/batch_inference.py \
-  --input_folder <path-to-image-folder> \
-  --prompt "human face . eyes . mouth" \
-  --box_threshold 0.35 \
-  --text_threshold 0.25 \
-  --output_folder <path-to-output>
+  --input_folder data \
+  --output_folder results/prompt_human_face \
+  --prompt "human face" \
+  --box_threshold 0.35 --text_threshold 0.25 \
+  [--device auto|cpu|cuda|mps] [--save_crops] [--exclude PATTERN ...] [--overwrite]
 ```
 
-Outputs: annotated images → `<path-to-output>/images/`, predictions (boxes, labels, confidence scores) → `<path-to-output>/predictions.json`, with per-image inference time logged.
+The input folder is scanned recursively, and the subfolder name becomes each image's `category`. `subsets_for_thresholds/` and `test_*/` are skipped by default because they contain copies of other images. `--device auto` picks CUDA when available and otherwise CPU; MPS is opt-in because Grounding DINO has known MPS op gaps.
 
-This repo's `results/` folder contains the actual output from the experiments documented in Day05/log.md — e.g. `results/prompt_human_face/`, `results/thresh_box025_text020/`.
+Each run writes:
 
-### Generating the small_lowres category
+| File | Contents |
+|---|---|
+| `predictions.json` | One entry per image: `image`, `category`, `prompt`, thresholds, `num_boxes`, `boxes` (normalized cx,cy,w,h), `boxes_xyxy` (pixels), `phrases`, `scores`, `inference_time_sec`, `image_width`, `image_height` |
+| `detections.csv` | One row per detection with pixel coordinates (images with no detections get one empty row), for pandas/Excel |
+| `run_config.json` | Exact command, all arguments, device, library versions, git commit, and timestamp, so every result folder is reproducible |
+| `images/<category>/…` | Annotated images |
+| `crops/<category>/…` | With `--save_crops`: each detected region with 20% padding (`--crop_pad`), ready for a stage-2 classifier |
+
+### Threshold sweep
 
 ```bash
-python src/make_small_lowres.py
+python src/threshold_sweep.py --input_folder data/occluded --prompt "human face" \
+  --pairs 0.25:0.20 0.35:0.25 0.45:0.30 --output_prefix results/thresh_occluded
 ```
 
-Re-derives `data/small_lowres/` from the existing curated photos (see script for the exact source/size mapping).
+This loads the model once, runs each box:text pair into `results/thresh_occluded_box025_text020/` and so on, and writes a combined `results/thresh_occluded_summary.csv`.
 
-### Summarizing results
+### Using the detector from your own code
 
-Use `src/summarize_results.py` to consolidate `num_boxes` (and related stats) from one or more `predictions.json` files, grouped by category and prompt — useful after running multiple prompts across the full image set.
+```python
+from src.detector import GroundingDinoDetector, crop
 
-### Running the threshold sweep
-
-To compare how `--box_threshold` and `--text_threshold` affect detections on the same set of images, run `src/batch_inference.py` once per threshold combination against a fixed input folder, pointing each run at a distinct `--output_folder`:
-
-```bash
-python src/batch_inference.py --input_folder data/subsets_for_thresholds \
-  --output_folder results/thresh_box025_text020 --prompt "human face" \
-  --box_threshold 0.25 --text_threshold 0.20 --cpu_only
-
-python src/batch_inference.py --input_folder data/subsets_for_thresholds \
-  --output_folder results/thresh_box035_text025 --prompt "human face" \
-  --box_threshold 0.35 --text_threshold 0.25 --cpu_only
-
-python src/batch_inference.py --input_folder data/subsets_for_thresholds \
-  --output_folder results/thresh_box045_text030 --prompt "human face" \
-  --box_threshold 0.45 --text_threshold 0.30 --cpu_only
+det = GroundingDinoDetector(device="auto")
+result, image_rgb, _ = det.detect("data/single/lfw_00.jpg", "human face")
+faces = [crop(image_rgb, d.box_xyxy, pad=0.25) for d in result.detections]
 ```
 
-Each run needs its own `--output_folder` — `predictions.json` is overwritten (not appended) if two runs share an output folder.
+### Other scripts
 
-Use `src/compare_thresholds.py` to print `num_boxes`/scores across all `thresh_*` result folders side by side for comparison.
+| Script | Purpose |
+|---|---|
+| `src/summarize_results.py` | Box counts grouped by category × prompt across `results/prompt_*` |
+| `src/compare_thresholds.py` | Side-by-side box counts and scores across `results/thresh_*` |
+| `src/make_small_lowres.py` | Regenerates `data/small_lowres/` by downscaling curated images to 40–90 px |
 
-## Daily Log Format
+## Test set
 
-Each `DayXX/log.md` follows this template:
+| Category | Folder | Images | Source |
+|---|---|---|---|
+| Single frontal face | `data/single/` | 10 | [LFW](https://huggingface.co/datasets/logasja/lfw) via Hugging Face |
+| Profile / angled | `data/profile/` | 5 | Pexels |
+| Multiple faces | `data/multiple/` | 5 | Unsplash, including a dense crowd |
+| Occluded | `data/occluded/` | 7 | Unsplash / Pexels: masks, hands, hair, sunglasses |
+| Small / low-res | `data/small_lowres/` | 6 | Derived: `src/make_small_lowres.py` |
+| Deepfake (placeholder) | `data/deepfake/` | 12 | [Kaggle: deepfake-and-real-images](https://www.kaggle.com/datasets/manjilkarki/deepfake-and-real-images), Test/Fake split; derived from [OpenForensics](https://zenodo.org/records/5528418) (Le et al., 2021, CC BY 4.0) |
 
-```markdown
-# Day XX — [Weekday], [Date]
+The deepfake category is a stand-in until access to FaceForensics++, RWDF-23, or FakeAVCeleb is granted. It is not forensic-quality data, so treat any prompt results on it as exploratory.
 
-## To-Do
-- [ ] [Task 1]
-  - Notes:
-- [ ] [Task 2]
-  - Notes:
-- [ ] [Task 3]
-  - Notes:
+## Repository layout
 
-## Experiments conducted
--
+```
+├── src/
+│   ├── detector.py            # GroundingDinoDetector: model loading, device, box conversion, cropping
+│   ├── batch_inference.py     # folder → annotated images + JSON/CSV + run config
+│   ├── threshold_sweep.py     # multiple threshold pairs, one model load
+│   └── ...                    # summarize / compare / data-generation helpers
+├── data/                      # test images by category
+├── results/                   # one folder per run (predictions + config; annotated images are gitignored)
+├── reports/                   # findings reports, slides, weekly progress
+├── docs/                      # model summary, README figures
+├── logs/Day01 … Day14/        # daily research log: tasks, commands, errors & fixes
+└── GroundingDINO/             # vendored upstream repo (Apache-2.0)
+```
 
-## Results obtained
--
+## Limitations
 
-## Challenges encountered
-| # | Challenge | Fix |
-|---|-----------|-----|
-|   |           |     |
+These results come from a 45-image test set and are measured by **box counts and confidence scores, not ground-truth annotations**. Terms like "missed" and "duplicate" come from visual inspection rather than a precision/recall calculation, and they should be read that way.
 
-## Planned next steps
--
+## Roadmap
+
+Planned next steps, roughly in order:
+
+1. **Ground-truth evaluation.** Annotate face boxes (or use a labeled set such as WIDER FACE val) and report precision, recall, and AP per category, replacing box counts.
+2. **Duplicate suppression.** Add class-agnostic NMS after `predict()` in `detector.py` and re-run the sweep to see whether it removes the need for high thresholds.
+3. **Dense-crowd recovery.** Try tiled / sliced inference (SAHI-style) or higher input resolution on the crowd image that currently gets 0 detections.
+4. **Stage 2.** Feed `--save_crops` output to a pretrained deepfake classifier and measure end-to-end accuracy on real manipulated data once dataset access lands.
+5. **Video.** Extend to frame sampling from FaceForensics++ / FakeAVCeleb videos.
+
+## Acknowledgments
+
+Grounding DINO is by IDEA Research; the vendored copy in `GroundingDINO/` keeps its original Apache-2.0 license.
+
+```bibtex
+@article{liu2023grounding,
+  title   = {Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection},
+  author  = {Liu, Shilong and Zeng, Zhaoyang and Ren, Tianhe and Li, Feng and Zhang, Hao and Yang, Jie and Li, Chunyuan and Yang, Jianwei and Su, Hang and Zhu, Jun and others},
+  journal = {arXiv preprint arXiv:2303.05499},
+  year    = {2023}
+}
 ```

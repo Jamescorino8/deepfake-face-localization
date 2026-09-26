@@ -1,0 +1,7 @@
+# Install torch/torchvision first for your platform (see pytorch.org), then:
+#   pip install -r requirements.txt
+#   pip install -e GroundingDINO --no-build-isolation
+transformers==4.37.*
+numpy
+opencv-python
+Pillow
