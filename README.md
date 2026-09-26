@@ -43,8 +43,8 @@ Full write-ups: [Findings Report v2](reports/GroundingDINO_Report_v2.pdf) · [In
 ## Quickstart
 
 ```bash
-git clone https://github.com/Jamescorino8/InfoLab-Research-Internship.git
-cd InfoLab-Research-Internship
+git clone https://github.com/Jamescorino8/deepfake-face-localization.git
+cd deepfake-face-localization
 
 conda create -n groundingdino python=3.10 -y
 conda activate groundingdino
