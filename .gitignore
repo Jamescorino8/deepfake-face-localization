@@ -16,3 +16,10 @@ reports/*.key
 reports/Student Research Activity Evaluation Form*.pdf
 /pyproject.toml
 reports/Research_Activity_Report_James_Corino.*
+
+# RWDF-23: licensed data, keep local only (metadata CSV, URL list, raw videos, extracted frames)
+data/RWDF23.csv
+data/rwdf23.csv
+data/rwdf23_raw/
+data/deepfake_rwdf23/
+**/urls.txt
