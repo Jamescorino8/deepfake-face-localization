@@ -1,6 +1,6 @@
 # Grounding DINO as a Face Localizer for Deepfake Detection
 
-Can an open-vocabulary detector find faces well enough to be **stage 1** of a deepfake-detection pipeline, handing crops to a dedicated forensic model? This repo evaluates [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO) (Swin-T) on 45 images across six conditions, sweeps its detection thresholds, and packages the detector as a reusable module for the next stage.
+Can an open-vocabulary detector find faces well enough to be **stage 1** of a deepfake-detection pipeline, handing crops to a dedicated forensic model? This repo evaluates [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO) (Swin-T) on 71 images across seven conditions, including 26 frames from 20 real in-the-wild deepfake videos (RWDF-23), sweeps its detection thresholds, and packages the detector as a reusable module for the next stage.
 
 Research internship project, SKKU InfoLab (AI for Social Good Lab), Jul–Aug 2026, supervised by Prof. Tamer Abuhmed.
 
@@ -21,7 +21,8 @@ flowchart LR
 | ✅ | **Frontal, profile, and moderately occluded faces are found reliably** with the prompt `"human face"`, typically one box per face at default thresholds. |
 | ⚠️ | **No single threshold works everywhere.** Raising box/text thresholds removes duplicate boxes on easy frontal faces but drops harder profile faces entirely (below). The default 0.35 / 0.25 is a reasonable middle ground. |
 | ❌ | **Dense crowds fail, and thresholds can't fix it.** A crowd photo with ~30–40 px faces returned **0 detections** on 4 of 5 prompts; even the most permissive setting (0.25 / 0.20) recovered only 2 low-confidence boxes out of hundreds of faces. This is a resolution/scale limitation, not a tuning one. |
-| ❌ | **Prompt wording is not a forensic signal.** `"real face"` and `"manipulated face"` return nearly the same boxes as `"human face"` (avg 1.25 vs 1.17 vs 1.33 boxes/image on the deepfake sample). The model matches *face*, not *authenticity*, which supports using it only for localization. |
+| ❌ | **Prompt wording is not a forensic signal, including on real deepfakes.** On 26 RWDF-23 deepfake frames, `"real face"` and `"manipulated face"` return the same boxes as `"human face"` (1.92 / 1.81 / 1.92 boxes/image; matched boxes at IoU > 0.9 in 88 of 97 cases), and `"manipulated face"` actually scores slightly *below* `"real face"` on the same box (39 of 46). The model matches *face*, not *authenticity*, which supports using it only for localization. |
+| ⚠️ | **In-the-wild video adds a new false positive: faces on screens and prints.** In 4 of 26 frames someone holds up a tablet, phone, or photo showing a face. All 5 of those faces were boxed by every face prompt (0.37–0.83), and in one frame the tablet face outscored the real person holding it (0.82 vs 0.70). In a two-stage pipeline those crops would reach the forensic classifier, so they need filtering before stage 2. |
 
 <table>
 <tr>
@@ -38,7 +39,7 @@ flowchart LR
 </tr>
 </table>
 
-Full write-ups: [Findings Report v2](reports/GroundingDINO_Report_v2.pdf) · [Initial Findings Report](reports/GroundingDINOInitialFindingsReport.pdf) · [Slides v2](reports/GroundingDINOInitialFindingsPresentation_v2.pdf) · [Initial slides](reports/GroundingDINOInitialFindingsPresentation.pdf) · [Model summary](docs/grounding_dino_summary.md)
+Full write-ups: [Findings Report v3](reports/GroundingDINO_Report_v3.pdf) (adds RWDF-23) · [Findings Report v2](reports/GroundingDINO_Report_v2.pdf) · [Initial Findings Report](reports/GroundingDINOInitialFindingsReport.pdf) · [Slides v2](reports/GroundingDINOInitialFindingsPresentation_v2.pdf) · [Initial slides](reports/GroundingDINOInitialFindingsPresentation.pdf) · [Model summary](docs/grounding_dino_summary.md)
 
 ## Quickstart
 
@@ -61,7 +62,7 @@ curl -L -o weights/groundingdino_swint_ogc.pth \
 python src/batch_inference.py --input_folder data/single --output_folder results/smoke_test --prompt "human face"
 ```
 
-Tested on macOS 26.6 / Apple M2, Python 3.10, PyTorch 2.13.0, transformers 4.37, CPU inference. Setup errors and their fixes are documented in [logs/Day02](logs/Day02/log.md) and [logs/Day04](logs/Day04/log.md).
+Tested on macOS 26.6 / Apple M2, Python 3.10, PyTorch 2.13.0, transformers 4.37, CPU inference. Setup errors and their fixes are documented in [logs/Day02](logs/Day02/log.md) and [logs/Day04](logs/Day04/log.md). On macOS 27 the PyPI scipy 1.15 wheel fails to import (`'__DATA/__thread_bss' has a zero-fill section type`); install scipy from conda-forge instead: `conda install -c conda-forge "scipy=1.15"` ([logs/Day15](logs/Day15/log.md)).
 
 ## Usage
 
@@ -125,8 +126,11 @@ faces = [crop(image_rgb, d.box_xyxy, pad=0.25) for d in result.detections]
 | Occluded | `data/occluded/` | 7 | Unsplash / Pexels: masks, hands, hair, sunglasses |
 | Small / low-res | `data/small_lowres/` | 6 | Derived: `src/make_small_lowres.py` |
 | Deepfake (placeholder) | `data/deepfake/` | 12 | [Kaggle: deepfake-and-real-images](https://www.kaggle.com/datasets/manjilkarki/deepfake-and-real-images), Test/Fake split; derived from [OpenForensics](https://zenodo.org/records/5528418) (Le et al., 2021, CC BY 4.0) |
+| Deepfake (RWDF-23) | `data/deepfake_rwdf23/` *(not in repo)* | 26 | Frames from 20 in-the-wild deepfake videos (8 TikTok, 5 Reddit, 7 Bilibili) listed in RWDF-23 ([Cho et al., CIKM 2023](#acknowledgments); access by request form) |
 
-The deepfake category is a stand-in until access to FaceForensics++, RWDF-23, or FakeAVCeleb is granted. It is not forensic-quality data, so treat any prompt results on it as exploratory.
+**Dataset status.** RWDF-23 access was granted in Oct 2026, and it is now the primary deepfake condition. The Kaggle set stays in the repo as the earlier placeholder for comparison. FaceForensics++ and FakeAVCeleb have no update since Aug 2026.
+
+RWDF-23 is licensed, so its metadata CSV, URL list, downloaded videos, and extracted frames are gitignored. Only the prediction outputs in `results/prompt_v3_rwdf23_*` are committed. To rebuild the frames locally, follow [logs/Day15](logs/Day15/log.md). Note that RWDF-23 distributes URLs, not videos: reaching 20 working videos took 40 attempts. None of the 12 YouTube links worked (9 needed a signed-in session, 3 were removed), some TikTok posts are region-blocked, and some Reddit posts were deleted.
 
 ## Repository layout
 
@@ -140,13 +144,13 @@ The deepfake category is a stand-in until access to FaceForensics++, RWDF-23, or
 ├── results/                   # one folder per run (predictions + config; annotated images are gitignored)
 ├── reports/                   # findings reports, slides, weekly progress
 ├── docs/                      # model summary, README figures
-├── logs/Day01 … Day14/        # daily research log: tasks, commands, errors & fixes
+├── logs/Day01 … Day15/        # daily research log: tasks, commands, errors & fixes
 └── GroundingDINO/             # vendored upstream repo (Apache-2.0)
 ```
 
 ## Limitations
 
-These results come from a 45-image test set and are measured by **box counts and confidence scores, not ground-truth annotations**. Terms like "missed" and "duplicate" come from visual inspection rather than a precision/recall calculation, and they should be read that way.
+These results come from a 71-image test set (26 of them RWDF-23 frames from 20 videos, none from YouTube) and are measured by **box counts and confidence scores, not ground-truth annotations**. Terms like "missed" and "duplicate" come from visual inspection rather than a precision/recall calculation, and they should be read that way.
 
 ## Roadmap
 
@@ -155,8 +159,9 @@ Planned next steps, roughly in order:
 1. **Ground-truth evaluation.** Annotate face boxes (or use a labeled set such as WIDER FACE val) and report precision, recall, and AP per category, replacing box counts.
 2. **Duplicate suppression.** Add class-agnostic NMS after `predict()` in `detector.py` and re-run the sweep to see whether it removes the need for high thresholds.
 3. **Dense-crowd recovery.** Try tiled / sliced inference (SAHI-style) or higher input resolution on the crowd image that currently gets 0 detections.
-4. **Stage 2.** Feed `--save_crops` output to a pretrained deepfake classifier and measure end-to-end accuracy on real manipulated data once dataset access lands.
-5. **Video.** Extend to frame sampling from FaceForensics++ / FakeAVCeleb videos.
+4. **Stage 2.** Feed `--save_crops` output from RWDF-23 frames to a pretrained deepfake classifier and measure end-to-end accuracy. RWDF-23 labels are per video, so this first needs per-face labels for which face was swapped.
+5. **Screen/print face filter.** Reject faces shown on held-up devices or photos before stage 2.
+6. **Larger RWDF-23 sample.** Retry the YouTube links with an authenticated session (about 60% of the dataset) and sample frames automatically rather than by hand.
 
 ## Acknowledgments
 
@@ -168,5 +173,17 @@ Grounding DINO is by IDEA Research; the vendored copy in `GroundingDINO/` keeps 
   author  = {Liu, Shilong and Zeng, Zhaoyang and Ren, Tianhe and Li, Feng and Zhang, Hao and Yang, Jie and Li, Chunyuan and Yang, Jianwei and Su, Hang and Zhu, Jun and others},
   journal = {arXiv preprint arXiv:2303.05499},
   year    = {2023}
+}
+```
+
+The RWDF-23 deepfake frames come from:
+
+```bibtex
+@inproceedings{cho2023towards,
+  title     = {Towards Understanding of Deepfake Videos in the Wild},
+  author    = {Cho, Beomsang and Le, Binh M and Kim, Jiwon and Woo, Simon and Tariq, Shahroz and Abuadbba, Alsharif and Moore, Kristen},
+  booktitle = {Proceedings of the 32nd ACM International Conference on Information and Knowledge Management},
+  pages     = {4530--4537},
+  year      = {2023}
 }
 ```
