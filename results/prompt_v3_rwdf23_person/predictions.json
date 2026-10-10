@@ -1,0 +1,1252 @@
+[
+  {
+    "image": "rwdf_08_t005.3.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.45333,
+        0.4224,
+        0.90282,
+        0.66639
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        1.1,
+        91.3,
+        521.1,
+        773.7
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.737
+    ],
+    "inference_time_sec": 3.428,
+    "image_width": 576,
+    "image_height": 1024
+  },
+  {
+    "image": "rwdf_08_t006.7.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.49904,
+        0.51833,
+        0.99579,
+        0.47291
+      ],
+      [
+        0.78943,
+        0.21835,
+        0.41909,
+        0.43408
+      ],
+      [
+        0.85675,
+        0.56468,
+        0.28378,
+        0.37559
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.7,
+        288.6,
+        574.2,
+        772.9
+      ],
+      [
+        334.0,
+        1.3,
+        575.4,
+        445.8
+      ],
+      [
+        411.8,
+        385.9,
+        575.2,
+        770.5
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.693,
+      0.493,
+      0.354
+    ],
+    "inference_time_sec": 3.285,
+    "image_width": 576,
+    "image_height": 1024
+  },
+  {
+    "image": "rwdf_11_t001.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.38106,
+        0.57959,
+        0.65101,
+        0.83863
+      ],
+      [
+        0.45769,
+        0.60773,
+        0.25416,
+        0.19451
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        60.0,
+        307.7,
+        763.1,
+        1917.9
+      ],
+      [
+        357.1,
+        980.1,
+        631.6,
+        1353.6
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.839,
+      0.634
+    ],
+    "inference_time_sec": 3.347,
+    "image_width": 1080,
+    "image_height": 1920
+  },
+  {
+    "image": "rwdf_11_t003.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.63941,
+        0.59853,
+        0.71907,
+        0.80093
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        302.3,
+        380.3,
+        1078.9,
+        1918.1
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.917
+    ],
+    "inference_time_sec": 3.017,
+    "image_width": 1080,
+    "image_height": 1920
+  },
+  {
+    "image": "rwdf_12_t004.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.49919,
+        0.61547,
+        0.99483,
+        0.76675
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        1.0,
+        240.0,
+        574.0,
+        1032.8
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.912
+    ],
+    "inference_time_sec": 3.004,
+    "image_width": 576,
+    "image_height": 1034
+  },
+  {
+    "image": "rwdf_12_t010.1.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.49941,
+        0.61475,
+        0.99593,
+        0.76759
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.8,
+        238.8,
+        574.5,
+        1032.5
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.929
+    ],
+    "inference_time_sec": 3.066,
+    "image_width": 576,
+    "image_height": 1034
+  },
+  {
+    "image": "rwdf_14_t006.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.16406,
+        0.71331,
+        0.32681,
+        0.57065
+      ],
+      [
+        0.77415,
+        0.71946,
+        0.45077,
+        0.55864
+      ],
+      [
+        0.63863,
+        0.69822,
+        0.23908,
+        0.58512
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.3,
+        308.1,
+        133.0,
+        719.0
+      ],
+      [
+        222.8,
+        316.9,
+        405.8,
+        719.1
+      ],
+      [
+        210.8,
+        292.1,
+        307.8,
+        713.4
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.771,
+      0.735,
+      0.658
+    ],
+    "inference_time_sec": 3.061,
+    "image_width": 406,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_14_t016.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.45344,
+        0.64991,
+        0.90315,
+        0.69801
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.8,
+        216.7,
+        367.4,
+        719.2
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.852
+    ],
+    "inference_time_sec": 3.113,
+    "image_width": 406,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_15_t017.1.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.4636,
+        0.60483,
+        0.43319,
+        0.78747
+      ],
+      [
+        0.77525,
+        0.62119,
+        0.22547,
+        0.75392
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        316.2,
+        152.0,
+        870.6,
+        719.0
+      ],
+      [
+        848.0,
+        175.8,
+        1136.6,
+        718.7
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.813,
+      0.758
+    ],
+    "inference_time_sec": 3.063,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_15_t085.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.5485,
+        0.51838,
+        0.67426,
+        0.95956
+      ],
+      [
+        0.45597,
+        0.5187,
+        0.48758,
+        0.95862
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        270.6,
+        27.8,
+        1133.6,
+        718.7
+      ],
+      [
+        271.6,
+        28.4,
+        895.7,
+        718.6
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.397,
+      0.446
+    ],
+    "inference_time_sec": 3.113,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_17_t003.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.55132,
+        0.55822,
+        0.44872,
+        0.88046
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        418.5,
+        85.0,
+        992.9,
+        718.9
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.538
+    ],
+    "inference_time_sec": 3.173,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_17_t017.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.51805,
+        0.5311,
+        0.44077,
+        0.93518
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        381.0,
+        45.7,
+        945.2,
+        719.1
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.757
+    ],
+    "inference_time_sec": 3.101,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_18_t003.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.74172,
+        0.65585,
+        0.51523,
+        0.62064
+      ],
+      [
+        0.2697,
+        0.65973,
+        0.44651,
+        0.6761
+      ],
+      [
+        0.55507,
+        0.61142,
+        0.48799,
+        0.77384
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        174.3,
+        221.1,
+        359.8,
+        618.3
+      ],
+      [
+        16.7,
+        205.9,
+        177.5,
+        638.6
+      ],
+      [
+        112.0,
+        143.7,
+        287.7,
+        638.9
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.653,
+      0.433,
+      0.447
+    ],
+    "inference_time_sec": 3.188,
+    "image_width": 360,
+    "image_height": 640
+  },
+  {
+    "image": "rwdf_19_t005.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.31485,
+        0.57584,
+        0.40084,
+        0.84604
+      ],
+      [
+        0.72641,
+        0.57301,
+        0.42506,
+        0.85148
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        146.5,
+        110.0,
+        659.6,
+        719.2
+      ],
+      [
+        657.8,
+        106.0,
+        1201.8,
+        719.1
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.816,
+      0.798
+    ],
+    "inference_time_sec": 3.163,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_20_t005.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.46286,
+        0.64239,
+        0.56633,
+        0.71245
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        129.4,
+        366.3,
+        537.1,
+        1278.2
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.804
+    ],
+    "inference_time_sec": 3.173,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_22_t049.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.4999,
+        0.64067,
+        0.3263,
+        0.71568
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        431.0,
+        203.6,
+        848.7,
+        718.9
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.916
+    ],
+    "inference_time_sec": 3.113,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_24_t002.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.46464,
+        0.53697,
+        0.87933,
+        0.92321
+      ],
+      [
+        0.49296,
+        0.47387,
+        0.23165,
+        0.18153
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        18.0,
+        96.5,
+        651.1,
+        1278.2
+      ],
+      [
+        271.5,
+        490.4,
+        438.3,
+        722.7
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.787,
+      0.667
+    ],
+    "inference_time_sec": 3.034,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_25_t143.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.5058,
+        0.39571,
+        0.37874,
+        0.71837
+      ],
+      [
+        0.15288,
+        0.26948,
+        0.14529,
+        0.53757
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        405.0,
+        26.3,
+        889.8,
+        543.5
+      ],
+      [
+        102.7,
+        0.5,
+        288.7,
+        387.5
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.776,
+      0.409
+    ],
+    "inference_time_sec": 3.134,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_26_t025.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 9,
+    "boxes": [
+      [
+        0.22429,
+        0.83361,
+        0.44775,
+        0.33091
+      ],
+      [
+        0.22419,
+        0.16689,
+        0.44825,
+        0.3337
+      ],
+      [
+        0.22401,
+        0.50205,
+        0.44696,
+        0.34506
+      ],
+      [
+        0.9057,
+        0.51109,
+        0.18741,
+        0.3209
+      ],
+      [
+        0.72101,
+        0.85217,
+        0.4027,
+        0.2954
+      ],
+      [
+        0.7201,
+        0.51094,
+        0.40076,
+        0.32157
+      ],
+      [
+        0.90625,
+        0.85294,
+        0.18733,
+        0.29358
+      ],
+      [
+        0.72095,
+        0.16971,
+        0.40102,
+        0.32463
+      ],
+      [
+        0.90732,
+        0.18612,
+        0.18531,
+        0.2917
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.2,
+        427.6,
+        161.3,
+        639.4
+      ],
+      [
+        0.0,
+        0.0,
+        161.4,
+        213.6
+      ],
+      [
+        0.2,
+        210.9,
+        161.1,
+        431.7
+      ],
+      [
+        292.3,
+        224.4,
+        359.8,
+        429.8
+      ],
+      [
+        187.1,
+        450.9,
+        332.1,
+        639.9
+      ],
+      [
+        187.1,
+        224.1,
+        331.4,
+        429.9
+      ],
+      [
+        292.5,
+        451.9,
+        360.0,
+        639.8
+      ],
+      [
+        187.4,
+        4.7,
+        331.7,
+        212.5
+      ],
+      [
+        293.3,
+        25.8,
+        360.0,
+        212.5
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person",
+      "person",
+      "person",
+      "person",
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.764,
+      0.781,
+      0.71,
+      0.666,
+      0.701,
+      0.741,
+      0.484,
+      0.736,
+      0.665
+    ],
+    "inference_time_sec": 3.074,
+    "image_width": 360,
+    "image_height": 640
+  },
+  {
+    "image": "rwdf_28_t004.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.19496,
+        0.6262,
+        0.38813,
+        0.74452
+      ],
+      [
+        0.68593,
+        0.58569,
+        0.62618,
+        0.8267
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.6,
+        325.0,
+        280.1,
+        1278.0
+      ],
+      [
+        268.4,
+        220.6,
+        719.3,
+        1278.8
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.818,
+      0.81
+    ],
+    "inference_time_sec": 3.056,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_29_t010.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.50015,
+        0.51714,
+        0.59136,
+        0.96344
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        261.7,
+        25.5,
+        1018.7,
+        719.2
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.939
+    ],
+    "inference_time_sec": 3.014,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_30_t031.3.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.39185,
+        0.24324,
+        0.29241,
+        0.43514
+      ],
+      [
+        0.66407,
+        0.24556,
+        0.24921,
+        0.43593
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        314.4,
+        18.5,
+        688.7,
+        331.8
+      ],
+      [
+        690.5,
+        19.9,
+        1009.5,
+        333.7
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.846,
+      0.845
+    ],
+    "inference_time_sec": 2.99,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_33_t013.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.4739,
+        0.54107,
+        0.34507,
+        0.91531
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        385.8,
+        60.1,
+        827.4,
+        719.1
+      ]
+    ],
+    "phrases": [
+      "person"
+    ],
+    "scores": [
+      0.933
+    ],
+    "inference_time_sec": 3.101,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_34_t092.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 4,
+    "boxes": [
+      [
+        0.33872,
+        0.61428,
+        0.19734,
+        0.67807
+      ],
+      [
+        0.27023,
+        0.71008,
+        0.33537,
+        0.57745
+      ],
+      [
+        0.13329,
+        0.57927,
+        0.26319,
+        0.83707
+      ],
+      [
+        0.01018,
+        0.28689,
+        0.01979,
+        0.05713
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        307.3,
+        198.2,
+        559.9,
+        686.4
+      ],
+      [
+        131.3,
+        303.4,
+        560.5,
+        719.1
+      ],
+      [
+        2.2,
+        115.7,
+        339.1,
+        718.4
+      ],
+      [
+        0.4,
+        186.0,
+        25.7,
+        227.1
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.404,
+      0.433,
+      0.351,
+      0.372
+    ],
+    "inference_time_sec": 3.043,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_36_t006.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.4998,
+        0.62351,
+        0.99632,
+        0.74998
+      ],
+      [
+        0.2652,
+        0.54263,
+        0.1402,
+        0.07069
+      ],
+      [
+        0.15241,
+        0.54883,
+        0.12251,
+        0.07251
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        1.2,
+        318.1,
+        718.5,
+        1278.1
+      ],
+      [
+        140.5,
+        649.3,
+        241.4,
+        739.8
+      ],
+      [
+        65.6,
+        656.1,
+        153.8,
+        748.9
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.707,
+      0.399,
+      0.37
+    ],
+    "inference_time_sec": 3.073,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_39_t002.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.6328,
+        0.58667,
+        0.73272,
+        0.82468
+      ],
+      [
+        0.82888,
+        0.35565,
+        0.25525,
+        0.20179
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        191.8,
+        223.1,
+        719.4,
+        1278.7
+      ],
+      [
+        504.9,
+        326.1,
+        688.7,
+        584.4
+      ]
+    ],
+    "phrases": [
+      "person",
+      "person"
+    ],
+    "scores": [
+      0.849,
+      0.556
+    ],
+    "inference_time_sec": 3.076,
+    "image_width": 720,
+    "image_height": 1280
+  }
+]

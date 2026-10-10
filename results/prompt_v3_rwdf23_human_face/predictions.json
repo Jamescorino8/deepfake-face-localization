@@ -1,0 +1,1196 @@
+[
+  {
+    "image": "rwdf_08_t005.3.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.32666,
+        0.32298,
+        0.50902,
+        0.40835
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        41.6,
+        121.7,
+        334.8,
+        539.8
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.879
+    ],
+    "inference_time_sec": 4.044,
+    "image_width": 576,
+    "image_height": 1024
+  },
+  {
+    "image": "rwdf_08_t006.7.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.17201,
+        0.46143,
+        0.34195,
+        0.32021
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        0.6,
+        308.6,
+        197.6,
+        636.4
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.869
+    ],
+    "inference_time_sec": 4.021,
+    "image_width": 576,
+    "image_height": 1024
+  },
+  {
+    "image": "rwdf_11_t001.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.39958,
+        0.3097,
+        0.22711,
+        0.17409
+      ],
+      [
+        0.48871,
+        0.57717,
+        0.14372,
+        0.09193
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        308.9,
+        427.5,
+        554.2,
+        761.7
+      ],
+      [
+        450.2,
+        1019.9,
+        605.4,
+        1196.4
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.758,
+      0.67
+    ],
+    "inference_time_sec": 3.364,
+    "image_width": 1080,
+    "image_height": 1920
+  },
+  {
+    "image": "rwdf_11_t003.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.67025,
+        0.3312,
+        0.20092,
+        0.14013
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        615.4,
+        501.4,
+        832.4,
+        770.4
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.849
+    ],
+    "inference_time_sec": 3.686,
+    "image_width": 1080,
+    "image_height": 1920
+  },
+  {
+    "image": "rwdf_12_t004.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.55736,
+        0.4906,
+        0.49965,
+        0.38511
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        177.1,
+        308.2,
+        464.9,
+        706.4
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.876
+    ],
+    "inference_time_sec": 3.685,
+    "image_width": 576,
+    "image_height": 1034
+  },
+  {
+    "image": "rwdf_12_t010.1.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.47065,
+        0.50753,
+        0.47133,
+        0.36631
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        135.4,
+        335.4,
+        406.8,
+        714.2
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.884
+    ],
+    "inference_time_sec": 4.384,
+    "image_width": 576,
+    "image_height": 1034
+  },
+  {
+    "image": "rwdf_14_t006.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.76656,
+        0.52411,
+        0.21592,
+        0.12396
+      ],
+      [
+        0.63751,
+        0.43523,
+        0.06372,
+        0.03319
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        267.4,
+        332.7,
+        355.1,
+        422.0
+      ],
+      [
+        245.9,
+        301.4,
+        271.8,
+        325.3
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.615,
+      0.366
+    ],
+    "inference_time_sec": 4.131,
+    "image_width": 406,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_14_t016.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.3332,
+        0.39316,
+        0.21851,
+        0.14278
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        90.9,
+        231.7,
+        179.6,
+        334.5
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.823
+    ],
+    "inference_time_sec": 3.632,
+    "image_width": 406,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_15_t017.1.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.42158,
+        0.52008,
+        0.1407,
+        0.33957
+      ],
+      [
+        0.69871,
+        0.58109,
+        0.05657,
+        0.34225
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        449.6,
+        252.2,
+        629.7,
+        496.7
+      ],
+      [
+        858.1,
+        295.2,
+        930.6,
+        541.6
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.793,
+      0.535
+    ],
+    "inference_time_sec": 3.481,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_15_t085.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.47965,
+        0.47656,
+        0.17352,
+        0.38792
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        502.9,
+        203.5,
+        725.0,
+        482.8
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.889
+    ],
+    "inference_time_sec": 3.616,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_17_t003.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.483,
+        0.37475,
+        0.11351,
+        0.27568
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        545.6,
+        170.6,
+        690.9,
+        369.1
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.845
+    ],
+    "inference_time_sec": 3.441,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_17_t017.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.47316,
+        0.36954,
+        0.14173,
+        0.35138
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        514.9,
+        139.6,
+        696.4,
+        392.6
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.857
+    ],
+    "inference_time_sec": 3.611,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_18_t003.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.86808,
+        0.4603,
+        0.15813,
+        0.11727
+      ],
+      [
+        0.56094,
+        0.31819,
+        0.17394,
+        0.14915
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        284.0,
+        257.1,
+        341.0,
+        332.1
+      ],
+      [
+        170.6,
+        155.9,
+        233.2,
+        251.4
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.633,
+      0.597
+    ],
+    "inference_time_sec": 3.601,
+    "image_width": 360,
+    "image_height": 640
+  },
+  {
+    "image": "rwdf_19_t005.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.69129,
+        0.34416,
+        0.09845,
+        0.24992
+      ],
+      [
+        0.29051,
+        0.34497,
+        0.09712,
+        0.24978
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        821.8,
+        157.8,
+        947.9,
+        337.8
+      ],
+      [
+        309.7,
+        158.5,
+        434.0,
+        338.3
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.765,
+      0.756
+    ],
+    "inference_time_sec": 3.56,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_20_t005.4.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.81864,
+        0.4118,
+        0.17547,
+        0.13051
+      ],
+      [
+        0.33341,
+        0.33017,
+        0.14733,
+        0.12079
+      ],
+      [
+        0.45516,
+        0.39145,
+        0.15049,
+        0.11577
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        526.3,
+        443.6,
+        652.6,
+        610.6
+      ],
+      [
+        187.0,
+        345.3,
+        293.1,
+        499.9
+      ],
+      [
+        273.5,
+        427.0,
+        381.9,
+        575.1
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.683,
+      0.619,
+      0.6
+    ],
+    "inference_time_sec": 3.513,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_22_t049.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.52998,
+        0.53847,
+        0.12963,
+        0.32466
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        595.4,
+        270.8,
+        761.3,
+        504.6
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.871
+    ],
+    "inference_time_sec": 3.655,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_24_t002.0.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.46726,
+        0.25515,
+        0.22609,
+        0.17255
+      ],
+      [
+        0.47821,
+        0.4664,
+        0.13199,
+        0.10187
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        255.0,
+        216.2,
+        417.8,
+        437.0
+      ],
+      [
+        296.8,
+        531.8,
+        391.8,
+        662.2
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.745,
+      0.697
+    ],
+    "inference_time_sec": 3.593,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_25_t143.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.49769,
+        0.21114,
+        0.08618,
+        0.24528
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        581.9,
+        63.7,
+        692.2,
+        240.3
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.836
+    ],
+    "inference_time_sec": 3.715,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_26_t025.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 9,
+    "boxes": [
+      [
+        0.21748,
+        0.08644,
+        0.19132,
+        0.169
+      ],
+      [
+        0.21155,
+        0.42582,
+        0.20183,
+        0.17562
+      ],
+      [
+        0.21969,
+        0.77945,
+        0.18337,
+        0.16861
+      ],
+      [
+        0.7169,
+        0.13045,
+        0.16164,
+        0.12179
+      ],
+      [
+        0.71583,
+        0.82586,
+        0.16305,
+        0.12241
+      ],
+      [
+        0.71558,
+        0.47227,
+        0.16218,
+        0.12337
+      ],
+      [
+        0.95216,
+        0.13617,
+        0.0958,
+        0.10194
+      ],
+      [
+        0.95178,
+        0.47877,
+        0.0941,
+        0.09731
+      ],
+      [
+        0.19795,
+        0.77984,
+        0.22865,
+        0.17421
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        43.9,
+        1.2,
+        112.7,
+        109.4
+      ],
+      [
+        39.8,
+        216.3,
+        112.5,
+        328.7
+      ],
+      [
+        46.1,
+        444.9,
+        112.1,
+        552.8
+      ],
+      [
+        229.0,
+        44.5,
+        287.2,
+        122.5
+      ],
+      [
+        228.3,
+        489.4,
+        287.0,
+        567.7
+      ],
+      [
+        228.4,
+        262.8,
+        286.8,
+        341.7
+      ],
+      [
+        325.5,
+        54.5,
+        360.0,
+        119.8
+      ],
+      [
+        325.7,
+        275.3,
+        359.6,
+        337.6
+      ],
+      [
+        30.1,
+        443.4,
+        112.4,
+        554.8
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face",
+      "human face",
+      "human face",
+      "human face",
+      "human face",
+      "human face",
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.557,
+      0.545,
+      0.417,
+      0.519,
+      0.497,
+      0.504,
+      0.427,
+      0.366,
+      0.359
+    ],
+    "inference_time_sec": 3.903,
+    "image_width": 360,
+    "image_height": 640
+  },
+  {
+    "image": "rwdf_28_t004.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.66917,
+        0.27342,
+        0.17991,
+        0.13339
+      ],
+      [
+        0.18595,
+        0.33211,
+        0.13604,
+        0.11037
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        417.0,
+        264.6,
+        546.6,
+        435.3
+      ],
+      [
+        84.9,
+        354.5,
+        182.9,
+        495.7
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.721,
+      0.727
+    ],
+    "inference_time_sec": 3.531,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_29_t010.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.46979,
+        0.27568,
+        0.15808,
+        0.41721
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        500.2,
+        48.3,
+        702.5,
+        348.7
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.811
+    ],
+    "inference_time_sec": 3.362,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_30_t031.3.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.38965,
+        0.24846,
+        0.12959,
+        0.29069
+      ],
+      [
+        0.65457,
+        0.26869,
+        0.13624,
+        0.33391
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        415.8,
+        74.2,
+        581.7,
+        283.5
+      ],
+      [
+        750.7,
+        73.3,
+        925.0,
+        313.7
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.795,
+      0.752
+    ],
+    "inference_time_sec": 3.719,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_33_t013.5.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 1,
+    "boxes": [
+      [
+        0.47758,
+        0.27101,
+        0.09672,
+        0.23116
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        549.4,
+        111.9,
+        673.2,
+        278.3
+      ]
+    ],
+    "phrases": [
+      "human face"
+    ],
+    "scores": [
+      0.827
+    ],
+    "inference_time_sec": 3.393,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_34_t092.6.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 4,
+    "boxes": [
+      [
+        0.59536,
+        0.37261,
+        0.0672,
+        0.16187
+      ],
+      [
+        0.09035,
+        0.36628,
+        0.06991,
+        0.15442
+      ],
+      [
+        0.82352,
+        0.39297,
+        0.04809,
+        0.10905
+      ],
+      [
+        0.31941,
+        0.40088,
+        0.05562,
+        0.10359
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        719.1,
+        210.0,
+        805.1,
+        326.6
+      ],
+      [
+        70.9,
+        208.1,
+        160.4,
+        319.3
+      ],
+      [
+        1023.3,
+        243.7,
+        1084.9,
+        322.2
+      ],
+      [
+        373.2,
+        251.3,
+        444.4,
+        325.9
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face",
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.677,
+      0.66,
+      0.669,
+      0.603
+    ],
+    "inference_time_sec": 3.35,
+    "image_width": 1280,
+    "image_height": 720
+  },
+  {
+    "image": "rwdf_36_t006.8.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 3,
+    "boxes": [
+      [
+        0.5519,
+        0.40597,
+        0.2675,
+        0.19483
+      ],
+      [
+        0.24368,
+        0.53965,
+        0.07915,
+        0.05887
+      ],
+      [
+        0.15209,
+        0.53804,
+        0.06721,
+        0.04557
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        301.1,
+        394.9,
+        493.7,
+        644.3
+      ],
+      [
+        147.0,
+        653.1,
+        203.9,
+        728.4
+      ],
+      [
+        85.3,
+        659.5,
+        133.7,
+        717.9
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.771,
+      0.501,
+      0.393
+    ],
+    "inference_time_sec": 3.422,
+    "image_width": 720,
+    "image_height": 1280
+  },
+  {
+    "image": "rwdf_39_t002.2.jpg",
+    "category": "deepfake_rwdf23",
+    "prompt": "human face",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "num_boxes": 2,
+    "boxes": [
+      [
+        0.82802,
+        0.35317,
+        0.17769,
+        0.15643
+      ],
+      [
+        0.51691,
+        0.32531,
+        0.21029,
+        0.1668
+      ]
+    ],
+    "boxes_xyxy": [
+      [
+        532.2,
+        351.9,
+        660.1,
+        552.2
+      ],
+      [
+        296.5,
+        309.6,
+        447.9,
+        523.1
+      ]
+    ],
+    "phrases": [
+      "human face",
+      "human face"
+    ],
+    "scores": [
+      0.819,
+      0.696
+    ],
+    "inference_time_sec": 3.691,
+    "image_width": 720,
+    "image_height": 1280
+  }
+]

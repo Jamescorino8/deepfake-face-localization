@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-10-08T23:39:00+00:00",
+  "command": "src/batch_inference.py --input_folder data/deepfake_rwdf23 --output_folder results/prompt_v3_rwdf23_person --prompt person --cpu_only --overwrite",
+  "args": {
+    "input_folder": "data/deepfake_rwdf23",
+    "output_folder": "results/prompt_v3_rwdf23_person",
+    "prompt": "person",
+    "box_threshold": 0.35,
+    "text_threshold": 0.25,
+    "config": "/Users/jamescorino/dev/deepfake-face-localization/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py",
+    "checkpoint": "/Users/jamescorino/dev/deepfake-face-localization/weights/groundingdino_swint_ogc.pth",
+    "device": "cpu",
+    "cpu_only": true,
+    "exclude": [
+      "subsets_for_thresholds",
+      "test_*"
+    ],
+    "save_crops": false,
+    "crop_pad": 0.2,
+    "overwrite": true
+  },
+  "device": "cpu",
+  "git_commit": "81f9b83",
+  "versions": {
+    "python": "3.10.20",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "torch": "2.13.0",
+    "torchvision": "0.28.0",
+    "transformers": "4.37.0"
+  },
+  "num_images": 26,
+  "mean_inference_time_sec": 3.115
+}
