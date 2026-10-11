@@ -39,7 +39,7 @@ flowchart LR
 </tr>
 </table>
 
-Full write-ups: [Findings Report v3](reports/GroundingDINO_Report_v3.pdf) (adds RWDF-23) · [Findings Report v2](reports/GroundingDINO_Report_v2.pdf) · [Initial Findings Report](reports/GroundingDINOInitialFindingsReport.pdf) · [Slides v2](reports/GroundingDINOInitialFindingsPresentation_v2.pdf) · [Initial slides](reports/GroundingDINOInitialFindingsPresentation.pdf) · [Model summary](docs/grounding_dino_summary.md)
+Full write-ups: [Findings Report v3](reports/report_v3.pdf) (adds RWDF-23) · [Findings Report v2](reports/report_v2.pdf) · [Initial Findings Report](reports/report_v1.pdf) · [Slides v2](reports/slides_v2.pdf) · [Initial slides](reports/slides_v1.pdf) · [Model summary](docs/grounding_dino_summary.md)
 
 ## Quickstart
 
@@ -77,7 +77,7 @@ python src/batch_inference.py \
   [--device auto|cpu|cuda|mps] [--save_crops] [--exclude PATTERN ...] [--overwrite]
 ```
 
-The input folder is scanned recursively, and the subfolder name becomes each image's `category`. `subsets_for_thresholds/` and `test_*/` are skipped by default because they contain copies of other images. `--device auto` picks CUDA when available and otherwise CPU; MPS is opt-in because Grounding DINO has known MPS op gaps.
+The input folder is scanned recursively, and the subfolder name becomes each image's `category`. Folders named `subsets_for_thresholds/` or `test_*/` are skipped by default because they're meant for copies of other images (e.g. the threshold subset described in [logs/Day05](logs/Day05/log.md)). `--device auto` picks CUDA when available and otherwise CPU; MPS is opt-in because Grounding DINO has known MPS op gaps.
 
 Each run writes:
 
@@ -142,7 +142,7 @@ RWDF-23 is licensed, so its metadata CSV, URL list, downloaded videos, and extra
 │   └── ...                    # summarize / compare / data-generation helpers
 ├── data/                      # test images by category
 ├── results/                   # one folder per run (predictions + config; annotated images are gitignored)
-├── reports/                   # findings reports, slides, weekly progress
+├── reports/                   # findings reports (report_v1–v3.pdf) and slides (slides_v1–v2.pdf)
 ├── docs/                      # model summary, README figures
 ├── logs/Day01 … Day15/        # daily research log: tasks, commands, errors & fixes
 └── GroundingDINO/             # vendored upstream repo (Apache-2.0)

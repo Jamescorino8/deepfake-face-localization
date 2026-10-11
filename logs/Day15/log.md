@@ -15,7 +15,7 @@ deepfake frames, and finalize the repo / Report v3
   `data/deepfake/`)
 - [x] Run the 5 standard prompts on the new frames, one output folder per prompt
 - [x] Summarize results and compare against the Kaggle placeholder (Day 12)
-- [x] Update README (test-set table, dataset status, RWDF-23 citation) and build `reports/GroundingDINO_Report_v3.pdf`
+- [x] Update README (test-set table, dataset status, RWDF-23 citation) and build `reports/report_v3.pdf`
 
 ## Experiments conducted
 
